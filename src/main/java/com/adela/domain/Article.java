@@ -52,4 +52,14 @@ public class Article {
         this.regDate = regDate;
         this.updateDate = regDate;
     }
+
+    @PrePersist
+    protected void onCreate() {
+        if (this.regDate == null) {
+            this.regDate = LocalDate.now();
+        }
+        if (this.updateDate == null) {
+            this.updateDate = LocalDate.now();
+        }
+    }
 }
