@@ -1,9 +1,11 @@
 package com.adela.dto;
 
 import com.adela.domain.Article;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
+@Getter
 public class ArticleResponse {
     private final Long boardId;
 
