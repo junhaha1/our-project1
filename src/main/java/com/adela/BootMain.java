@@ -1,4 +1,4 @@
-package com.adela.main;
+package com.adela;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
