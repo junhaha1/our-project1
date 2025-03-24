@@ -52,4 +52,12 @@ public class Article {
         this.regDate = regDate;
         this.updateDate = regDate;
     }
+
+    public void update(String title, String content, String codeContent, String errorContent, LocalDate updateDate){
+        this.title = title;
+        this.content = content;
+        this.codeContent = codeContent;
+        this.errorContent = errorContent;
+        this.updateDate = updateDate;
+    }
 }
