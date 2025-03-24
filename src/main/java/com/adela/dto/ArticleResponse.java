@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Getter
 public class ArticleResponse {
-
+    private final Long boardId;
     private final Long categoryId;
     private final Long userId;
     private final String title;
