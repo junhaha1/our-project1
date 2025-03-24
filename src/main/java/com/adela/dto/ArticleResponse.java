@@ -7,22 +7,14 @@ import java.time.LocalDate;
 
 @Getter
 public class ArticleResponse {
-    private final Long boardId;
 
     private final Long categoryId;
-
     private final Long userId;
-
     private final String title;
-
     private final String content;
-
     private final String codeContent;
-
     private final String errorContent;
-
     private final LocalDate regDate;
-
     private final LocalDate updateDate;
 
     public ArticleResponse(Article article){
@@ -35,5 +27,6 @@ public class ArticleResponse {
         this.errorContent = article.getErrorContent();
         this.regDate = article.getRegDate();
         this.updateDate = article.getUpdateDate();
+
     }
 }

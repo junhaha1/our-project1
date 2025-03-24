@@ -9,5 +9,4 @@ spring:
   h2:
     console:
       enabled: true
-
   defer-datasource-initialization: true

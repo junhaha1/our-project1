@@ -53,11 +53,22 @@ public class Article {
         this.updateDate = regDate;
     }
 
+
+    @PrePersist
+    protected void onCreate() {
+        if (this.regDate == null) {
+            this.regDate = LocalDate.now();
+        }
+        if (this.updateDate == null) {
+            this.updateDate = LocalDate.now();
+        }
+
     public void update(String title, String content, String codeContent, String errorContent, LocalDate updateDate){
         this.title = title;
         this.content = content;
         this.codeContent = codeContent;
         this.errorContent = errorContent;
         this.updateDate = updateDate;
+
     }
 }
