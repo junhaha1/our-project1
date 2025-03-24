@@ -23,6 +23,8 @@ public class BoardService {
 
     public List<Article> findAll (){
         return boardRepository.findAll();
+    }
+
     //게시판 ID를 이용하여 해당 게시글 상세조회하기
     public Article findById(long id){
         return boardRepository.findById(id)

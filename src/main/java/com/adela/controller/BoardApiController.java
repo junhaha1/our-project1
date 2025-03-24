@@ -36,12 +36,13 @@ public class BoardApiController {
     }
 
     @GetMapping("/board/list")
-    public ResponseEntity<List<ArticleResponse>> findAllArticles(){
+    public ResponseEntity<List<ArticleResponse>> findAllArticles() {
         List<ArticleResponse> articles = boardService.findAll()
                 .stream()
                 .map(ArticleResponse::new)
                 .toList();
         return ResponseEntity.ok().body(articles);
+    }
 
     @GetMapping("/board/list/{articleId}")
     public ResponseEntity<ArticleResponse> findArticle(@PathVariable("articleId") long id){
