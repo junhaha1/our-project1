@@ -18,12 +18,11 @@ public class Good {
     @Column(name = "Location", nullable = false)
     private Long location;
 
-    @ManyToOne
-    @JoinColumn(name = "boardID", referencedColumnName = "boardID")
+    @Column(name = "boardID")
     private Long boardId;
 
-    @ManyToOne
-    @JoinColumn(name = "commentID")
+
+    @Column(name = "commentID")
     private Long commentId; //FK로 수정
 
     @Builder
