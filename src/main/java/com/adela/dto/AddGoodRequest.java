@@ -1,6 +1,8 @@
 package com.adela.dto;
 
-import com.adela.domain.Good;
+import com.adela.domain.Article;
+import com.adela.domain.ArticleGood;
+import com.adela.domain.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,17 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 public class AddGoodRequest {
-    private Long userId;
-    private Long location;
+    private String userId;
     private Long boardId;
-    private Long commentId;
 
-    public Good toEntity(){
-        return Good.builder()
-                .userId(userId)
-                .location(location)
-                .boardId(boardId)
-                .commentId(commentId)
+    public ArticleGood toEntity(UserEntity user, Article board) {
+        return ArticleGood.builder()
+                .userId(user)
+                .boardId(board)
                 .build();
     }
 

@@ -1,6 +1,6 @@
 package com.adela.dto;
 
-import com.adela.domain.userEntity;
+import com.adela.domain.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,8 +18,8 @@ public class AddUserRequest {
     private String pwd;
     private LocalDate regDate;
 
-    public userEntity toEntity(){
-        return userEntity.builder()
+    public UserEntity toEntity(){
+        return UserEntity.builder()
                 .userId(userId)
                 .name(name)
                 .pwd(pwd)

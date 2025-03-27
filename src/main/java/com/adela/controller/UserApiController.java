@@ -1,6 +1,6 @@
 package com.adela.controller;
 
-import com.adela.domain.userEntity;
+import com.adela.domain.UserEntity;
 import com.adela.dto.AddUserRequest;
 import com.adela.dto.UpdateUserRequest;
 import com.adela.dto.UserResponse;
@@ -18,11 +18,11 @@ public class UserApiController {
     private final UserService userService;
 
     @PostMapping("/board/user")
-    public ResponseEntity<userEntity> addUser(@RequestBody AddUserRequest request){
+    public ResponseEntity<UserEntity> addUser(@RequestBody AddUserRequest request){
         if (request.getRegDate() == null) {
             request.setRegDate(LocalDate.now());
         }
-        userEntity savedUserEntity = userService.save(request);
+        UserEntity savedUserEntity = userService.save(request);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedUserEntity);
@@ -30,7 +30,7 @@ public class UserApiController {
 
     @GetMapping("/board/user/{userId}")
     public ResponseEntity<UserResponse> findUser(@PathVariable("userId") String userId){
-        userEntity userEntity = userService.findById(userId);
+        UserEntity userEntity = userService.findById(userId);
 
         return ResponseEntity.ok()
                 .body(new UserResponse(userEntity));
@@ -45,8 +45,8 @@ public class UserApiController {
     }
 
     @PutMapping("/board/user/{userId}")
-    public ResponseEntity<userEntity> updateUser(@PathVariable("userId") String userId, @RequestBody UpdateUserRequest request){
-        userEntity updateUserEntity = userService.update(userId, request);
+    public ResponseEntity<UserEntity> updateUser(@PathVariable("userId") String userId, @RequestBody UpdateUserRequest request){
+        UserEntity updateUserEntity = userService.update(userId, request);
 
         return ResponseEntity.ok()
                 .body(updateUserEntity);
