@@ -20,7 +20,7 @@ public class BoardService {
         return boardRepository.save(request.toEntity());
     }
 
-    public List<Article> findAll (){
+    public List<Article> findAll () {
         return boardRepository.findAll();
     }
 

@@ -54,7 +54,6 @@ public class Article {
         this.updateDate = regDate;
     }
 
-
     @PrePersist
     protected void onCreate() {
         LocalDate date = LocalDate.now();
@@ -65,7 +64,6 @@ public class Article {
             this.updateDate = date;
         }
     }
-
     public void update(String title, String content, String codeContent, String errorContent, LocalDate updateDate){
         this.title = title;
         this.content = content;
