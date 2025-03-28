@@ -5,6 +5,7 @@ import com.adela.domain.BoardComment;
 import com.adela.dto.*;
 import com.adela.service.BoardService;
 import com.adela.service.CommentService;
+import com.adela.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +28,11 @@ import java.util.List;
 public class BoardApiController {
     private final BoardService boardService;
     private final CommentService commentService;
+    private final UserService userService;
 
-    @PostMapping("/board/article")
-    public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request) {
+    @PostMapping("/board/article/{userId}")
+    public ResponseEntity<Article> addArticle(@PathVariable String userId, @RequestBody AddArticleRequest request) {
+        request.connectionUserEntity(userService.findById(userId));
         Article savedArticle = boardService.save(request);
 
         return ResponseEntity.status(HttpStatus.CREATED)
