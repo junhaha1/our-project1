@@ -22,7 +22,7 @@ public class Article {
 
     @ManyToOne
     @JoinColumn(name = "userID", nullable = false)
-    private UserEntity userId;
+    private UserEntity userEntity;
 
     @Column(name = "Title", nullable = false)
     private String title;
@@ -43,9 +43,9 @@ public class Article {
     private LocalDate updateDate;
 
     @Builder
-    public Article(Long categoryId, UserEntity userId, String title, String content, String codeContent, String errorContent, LocalDate regDate){
+    public Article(Long categoryId, UserEntity userEntity, String title, String content, String codeContent, String errorContent, LocalDate regDate){
         this.categoryId = categoryId;
-        this.userId = userId;
+        this.userEntity = userEntity;
         this.title = title;
         this.content = content;
         this.codeContent = codeContent;

@@ -13,18 +13,22 @@ import java.time.LocalDate;
 @Getter
 public class AddArticleRequest {
     private Long categoryId;
-    private UserEntity userId;
+    private UserEntity userEntity;
     private String title;
     private String content;
     private String codeContent;
     private String errorContent;
     private LocalDate regDate;
 
+    public void connectionUserEntity(UserEntity userEntity){
+        this.userEntity = userEntity;
+    }
+
 
     public Article toEntity(){
         return Article.builder()
                 .categoryId(categoryId)
-                .userId(userId)
+                .userEntity(userEntity)
                 .title(title)
                 .content(content)
                 .codeContent(codeContent)

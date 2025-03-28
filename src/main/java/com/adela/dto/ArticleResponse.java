@@ -21,7 +21,7 @@ public class ArticleResponse {
     public ArticleResponse(Article article){
         this.boardId = article.getBoardId();
         this.categoryId = article.getCategoryId();
-        this.userId = article.getUserId().getUserId();
+        this.userId = article.getUserEntity().getUserId();
         this.title = article.getTitle();
         this.content = article.getContent();
         this.codeContent = article.getCodeContent();
