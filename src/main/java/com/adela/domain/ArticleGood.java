@@ -1,0 +1,30 @@
+package com.adela.domain;
+
+import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@IdClass(ArticleGoodId.class) // 복합 키 설정
+public class ArticleGood {
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "userID", nullable = false)
+    private UserEntity userId;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "boardID", nullable = false)
+    private Article boardId;
+
+    @Builder
+    public ArticleGood(UserEntity userId, Article boardId) {
+        this.userId = userId;
+        this.boardId = boardId;
+    }
+}

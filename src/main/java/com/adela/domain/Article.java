@@ -20,8 +20,9 @@ public class Article {
     @Column(name = "categoryID", nullable = false)
     private Long categoryId;
 
-    @Column(name = "userID", nullable = false)
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "userID", nullable = false)
+    private UserEntity userId;
 
     @Column(name = "Title", nullable = false)
     private String title;
@@ -42,7 +43,7 @@ public class Article {
     private LocalDate updateDate;
 
     @Builder
-    public Article(Long categoryId, Long userId, String title, String content, String codeContent, String errorContent, LocalDate regDate){
+    public Article(Long categoryId, UserEntity userId, String title, String content, String codeContent, String errorContent, LocalDate regDate){
         this.categoryId = categoryId;
         this.userId = userId;
         this.title = title;
@@ -55,11 +56,12 @@ public class Article {
 
     @PrePersist
     protected void onCreate() {
+        LocalDate date = LocalDate.now();
         if (this.regDate == null) {
-            this.regDate = LocalDate.now();
+            this.regDate = date;
         }
         if (this.updateDate == null) {
-            this.updateDate = LocalDate.now();
+            this.updateDate = date;
         }
     }
     public void update(String title, String content, String codeContent, String errorContent, LocalDate updateDate){
@@ -68,6 +70,5 @@ public class Article {
         this.codeContent = codeContent;
         this.errorContent = errorContent;
         this.updateDate = updateDate;
-
     }
 }

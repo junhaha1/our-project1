@@ -18,12 +18,12 @@ public class BoardService {
     private final BoardRepository boardRepository;
     public Article save(AddArticleRequest request){
         return boardRepository.save(request.toEntity());
-        //생성된(toEntity) 객체를 인터페이스(repository)의 save를 통해 저장
     }
 
     public List<Article> findAll () {
         return boardRepository.findAll();
     }
+
     //게시판 ID를 이용하여 해당 게시글 상세조회하기
     public Article findById(long id){
         return boardRepository.findById(id)
