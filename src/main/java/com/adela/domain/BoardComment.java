@@ -17,7 +17,7 @@ public class BoardComment {
     private Long commentId;
 
     @ManyToOne(fetch = FetchType.LAZY) //나중에 확인
-    @JoinColumn(name="boardid", nullable=false)
+    @JoinColumn(name="board_id", nullable=false)
     private Article article;
 
     @Column(name = "comment", nullable = false)
