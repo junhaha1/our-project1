@@ -14,12 +14,12 @@ public class ArticleGood {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "userID", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userId;
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "boardID", nullable = false)
+    @JoinColumn(name = "board_id", nullable = false)
     private Article boardId;
 
     @Builder

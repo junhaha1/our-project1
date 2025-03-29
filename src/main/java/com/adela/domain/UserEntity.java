@@ -17,7 +17,7 @@ public class UserEntity {
 
     //email
     @Id
-    @Column(name = "userID", updatable = false)
+    @Column(name = "user_id", updatable = false)
     private String userId;
 
     @Column(name = "name", nullable = false)
@@ -26,10 +26,10 @@ public class UserEntity {
     @Column(name = "pwd", nullable = false)
     private String pwd;
 
-    @Column(name = "regDate")
+    @Column(name = "reg_date")
     private LocalDate regDate;
 
-    @Column(name = "deleteDate")
+    @Column(name = "delete_date")
     private LocalDate deleteDate;
 
     @Builder

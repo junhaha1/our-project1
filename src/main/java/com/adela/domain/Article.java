@@ -14,32 +14,32 @@ import java.time.LocalDate;
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "boardID", updatable = false)
+    @Column(name = "board_id", updatable = false)
     private Long boardId;
 
-    @Column(name = "categoryID", nullable = false)
+    @Column(name = "ct_id", nullable = false)
     private Long categoryId;
 
     @ManyToOne
-    @JoinColumn(name = "userID", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userEntity;
 
-    @Column(name = "Title", nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "Content")
+    @Column(name = "content")
     private String content;
 
-    @Column(name = "codeContent")
+    @Column(name = "code_content")
     private String codeContent;
 
-    @Column(name = "errorContent")
+    @Column(name = "error_content")
     private String errorContent;
 
-    @Column(name = "regDate", nullable = false)
+    @Column(name = "reg_date", nullable = false)
     private LocalDate regDate;
 
-    @Column(name = "updateDate")
+    @Column(name = "update_date")
     private LocalDate updateDate;
 
     @Builder
